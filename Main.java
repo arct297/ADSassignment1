@@ -11,7 +11,7 @@ public class Main {
 }
 
 class Task1{
-    // Big O notation: O(n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
     public static int findMinimum(int sequenceLength){
         int new_value = scanner.nextInt();
@@ -33,11 +33,10 @@ class Task1{
 }
 
 class Task2 {
-    // Big O notation: O(n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
     public static float findAvg(int sequenceLength){
-        int value = scanner.nextInt();
-        return (float) findSumOfSequence(value, sequenceLength - 1) / sequenceLength;
+        return (float) findSumOfSequence(scanner.nextInt(), sequenceLength - 1) / sequenceLength;
     }
 
     private static int findSumOfSequence(int sum, int limit){
@@ -54,7 +53,7 @@ class Task2 {
 }
 
 class Task3 {
-    // Big O notation: O(root of n)
+    // Complexity: square root: O(sqrt(n))
     public static Scanner scanner = new Scanner(System.in);
     public static boolean isPrime(int number){
         if (number == 1) return false;
@@ -79,7 +78,7 @@ class Task3 {
 }
 
 class Task4 {
-    // Big O notation: O(n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
     public static int findFactorial(int number){
         if (number == 0) return 1;
@@ -99,7 +98,7 @@ class Task4 {
 }
 
 class Task5 {
-    // Big O notation: O(n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
 
     public static long fib(int index){
@@ -125,7 +124,7 @@ class Task5 {
 }
 
 class Task6 {
-    // Big O notation: O(log2 n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
     public static int power(int number, int times){
         return countPower(1, number, times);
@@ -144,7 +143,7 @@ class Task6 {
 }
 
 class Task7 {
-    // Big O notation: O(n!)
+    // Complexity: factorial: O(n!)
     public static Scanner scanner = new Scanner(System.in);
     private static void printPermutations(char[] string, int index){
         if (index == string.length - 1){
@@ -176,7 +175,7 @@ class Task7 {
 }
 
 class Task8 {
-    // Big O notation: O(n)
+    // Complexity: linear: O(n)
     public static Scanner scanner = new Scanner(System.in);
     public static boolean isStringDigit(String string){
         return isStringDigit(string, string.length() - 1);
@@ -199,7 +198,7 @@ class Task8 {
 
 }
 class Task9 {
-    // Big O notation: O(2^n)
+    // Complexity: exponential: O(2^n)
     public static Scanner scanner = new Scanner(System.in);
 
     public static int binomialCoefficient(int n, int k) {
@@ -217,19 +216,18 @@ class Task9 {
 }
 
 class Task10 {
-    // Big O notation: O(n)
+    // Complexity: logarithmic: O(log n)
     public static Scanner scanner = new Scanner(System.in);
 
     public static int GCD(int a, int b) {
         if (b > a) return findGCD(b, a);
-        return findGCD(a, b);
+        if (b == 0) return a;
+        return findGCD(b, a % b);
     }
 
-    private static  int findGCD(int b, int remainder){
-        if (remainder == 0){
-            return b;
-        }
-        return findGCD(remainder, b % remainder);
+    private static int findGCD(int a, int b) {
+        if (b == 0) return a;
+        return findGCD(b, a % b);
     }
 
     public static void main(String[] args) {
